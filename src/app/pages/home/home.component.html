@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar></mat-toolbar>
+        <mat-nav-list>
+            <!-- <a mat-list-item routerLink="/" *ngIf="this.route != '/'">HOME</a> -->
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon"></mat-icon>
+      </button>
+            <span>Gestão de credenciais</span>
+            <div class="right" id="iconButton">
+
+                <span class="material-icons" (click)="logout()" alt="sair">
+                        logout
+                        </span>
+
+            </div>
+
+        </mat-toolbar>
+
+
+        <datatable [FUNCIONARIOS_DATA]="dataSource"></datatable>
+
+
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

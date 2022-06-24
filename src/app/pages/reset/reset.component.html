@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="rio">
+
+        <img src="../../../assets/images/rio2030.jpg">
+    </div>
+
+    <div class="header">
+    </div>
+    <form [formGroup]="loginForm" class="page">
+
+
+        <h1>SUBSECRETARIA MILITAR</h1>
+
+        <img src="../../../assets/images/logo.png" id="logoLogin">
+        <mat-form-field appearance="legacy" class="formFild">
+            <mat-label>Id Funcional</mat-label>
+            <input matInput placeholder="" formControlName="usuario" class="input">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <div class="btns">
+
+            <button mat-flat-button [disabled]="!loginForm.valid" (click)="reset()">entrar</button>
+            <button mat-flat-button routerLink="/login">voltar</button>
+        </div>
+
+    </form>
+
+</div>

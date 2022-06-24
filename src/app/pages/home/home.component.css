@@ -1,0 +1,38 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+table {
+    width: 100%;
+    position: relative;
+}
+
+.lista {
+    margin: 350, auto
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+#iconButton :hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+.right {
+    text-align: right;
+    justify-content: right;
+    align-items: right;
+    margin-left: auto;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}

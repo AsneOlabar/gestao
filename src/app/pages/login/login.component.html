@@ -1,0 +1,40 @@
+<div class="main">
+
+    <div class="rio">
+        <img src="../../../assets/images/rio2030.jpg">
+    </div>
+
+    <div class="header">
+    </div>
+    <form [formGroup]="loginForm" class="page">
+
+
+        <h1>SUBSECRETARIA MILITAR</h1>
+
+        <img src="../../../assets/images/logo.png" id="logoLogin">
+
+        <div class="center">
+
+            <mat-form-field appearance="legacy" class="formFild">
+                <mat-label>Id Funcional</mat-label>
+                <input matInput placeholder="" formControlName="usuario" class="input">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+        </div>
+
+        <mat-form-field appearance="legacy" class="formFild">
+            <mat-label>senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" class="input">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+        </mat-form-field>
+
+        <button mat-flat-button [disabled]="!loginForm.valid" (click)="login()">entrar</button>
+        <div class="ancora">
+            <a routerLink="/reset">esqueceu a senha ?</a>
+        </div>
+
+    </form>
+</div>
