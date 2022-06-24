@@ -40,7 +40,8 @@
     width: 120px;
 }
 
-.page {
+
+/* .page {
     background-color: #e8f1f2;
     justify-content: center;
     align-items: center;
@@ -53,6 +54,20 @@
     position: absolute;
     top: 40%;
     border-radius: 10px;
+} */
+
+.page {
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center space-around;
+    align-items: center;
+    background-color: #e8f1f2;
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+    padding: 20px 20px 20px 20px;
+    margin: 0 auto;
 }
 
 a {

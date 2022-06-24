@@ -4,7 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ResetComponent } from './pages/reset/reset.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './_services/authguard';
-import { UpdateSenhaComponent } from './pages/update-senha/update-senha.component';
+import { UpdateSenhaComponent } from './pages/redefinir-senha/redefinir-senha.component';
 
 const routes: Routes = [
   {path: "login" , component: LoginComponent },

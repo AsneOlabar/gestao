@@ -8,9 +8,9 @@ import { environment } from 'src/environments/environment';
 
 
 @Component({
-  selector: 'app-update-senha',
-  templateUrl: './update-senha.component.html',
-  styleUrls: ['./update-senha.component.css']
+  selector: 'app-redefinir-senha',
+  templateUrl: './redefinir-senha.component.html',
+  styleUrls: ['./redefinir-senha.component.css']
 })
 export class UpdateSenhaComponent implements OnInit {
 mensagem : any;

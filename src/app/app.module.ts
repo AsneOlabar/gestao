@@ -19,7 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AuthGuard } from './_services/authguard';
-import { UpdateSenhaComponent } from './pages/update-senha/update-senha.component';
+import { UpdateSenhaComponent } from './pages/redefinir-senha/redefinir-senha.component';
 import { FuncionariosService } from './_services/funcionarios.service';
 @NgModule({
   declarations: [

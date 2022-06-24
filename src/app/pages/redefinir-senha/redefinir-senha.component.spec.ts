@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateSenhaComponent } from './update-senha.component';
+import { UpdateSenhaComponent } from './redefinir-senha.component';
 
 describe('UpdateSenhaComponent', () => {
   let component: UpdateSenhaComponent;
