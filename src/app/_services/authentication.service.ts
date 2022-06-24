@@ -39,9 +39,10 @@ export class AuthenticationService { //Realiza o serviço de autenticação junt
       }));
   }
 
- logout() { // Desloga o usuário e destrói a sesão atual da memória do navegador
-
-    this.router.navigate(['/login'])
+  logout(){
+    environment.logado = false;
+    this.router.navigate(['/login']);
+    
   }
 
 }

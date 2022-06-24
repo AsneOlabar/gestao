@@ -5,9 +5,8 @@ import { map, shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import { FuncionariosService } from 'src/app/_services/funcionarios.service';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -27,26 +26,19 @@ export class HomeComponent implements OnInit{
 
   constructor(private breakpointObserver: BreakpointObserver,     private router: Router,
     private http: HttpClient,
-    private funcionarios: FuncionariosService,
+    private auth: AuthenticationService
+    
 
     ) {}
 
 
   ngOnInit(): void {
     this.user = environment.user;
-    this.funcionarios.getFuncionarios()
-    .subscribe(info => {
-      this.dataSource = info.info
-    }, 
-      
-      );
-    this.route = this.router.url;
-    console.log(this.route)
+    
   }
 
 
 logout(){
-  environment.logado = false;
-  this.router.navigate(['/login']);}
-  
+  this.auth.logout()
+}
 }
