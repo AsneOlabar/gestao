@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+}
+
+.filter {
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#filter {
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+}

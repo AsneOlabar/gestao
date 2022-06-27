@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: "http://api.local/",
-  user: Object,
+  user: null,
+  funcionario: null,
   logado: false,
   authorization: null
 };

@@ -1,0 +1,153 @@
+<form [formGroup]="cadastro" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+        <mat-card-header>
+            <mat-card-title>Formulario de atualização cadastral</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img [src]="foto" alt="Foto 3x4" *ngIf="!isImageSaved ">
+                    <img [src]="cardImageBase64" alt="" *ngIf="isImageSaved">
+
+
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col">
+                    <label for="fotoUpload" *ngIf="!isImageSaved">Carregue a nova foto.</label><br>
+
+                    <input name="fotoUpload" type="file" *ngIf="!isImageSaved" placeholder="Foto 3x4" (change)="CreateBase64String($event)" accept="image/jpeg">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+
+                    <mat-form-field class="grande">
+                        <input matInput placeholder="Nome completo" formControlName="nome_funcionario" [disabled]>
+                        <mat-error *ngIf="cadastro.controls['nome_funcionario'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+
+                    <mat-form-field class="peq">
+                        <input matInput placeholder="CPF" formControlName="cpf_funcionario">
+                        <mat-error *ngIf="cadastro.controls['cpf_funcionario'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+
+                    <mat-form-field class="peq">
+                        <input matInput placeholder="Id Funcional" formControlName="funcional">
+                        <mat-error *ngIf="cadastro.controls['funcional'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="peq">
+                        <input matInput placeholder="RG" formControlName="identidade">
+                        <mat-error *ngIf="cadastro.controls['identidade'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="peq">
+                        <input matInput placeholder="Emissor" formControlName="emissor">
+                        <mat-error *ngIf="cadastro.controls['emissor'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="peq">
+                        <input matInput placeholder="Tipo Sanguíneo" formControlName="sangue">
+                        <mat-error *ngIf="cadastro.controls['sangue'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <!-- <div class="row">
+                <div class="col">
+                    <mat-form-field class="grande">
+                        <input matInput placeholder="Òrgão" formControlName="orgao">
+                        <mat-error *ngIf="cadastro.controls['orgao'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div> -->
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="grande">
+                        <input matInput placeholder="Setor" formControlName="setor">
+                        <mat-error *ngIf="cadastro.controls['setor'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="peq">
+                        <input matInput placeholder="Função" formControlName="funcao">
+                        <mat-error *ngIf="cadastro.controls['funcao'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="min">
+                        <input matInput placeholder="Ramal" formControlName="ramal">
+                        <mat-error *ngIf="cadastro.controls['ramal'].hasError('required')">
+                            <strong>*</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!cadastro.valid"><span class="material-icons">
+                save
+                </span></button>
+            <a mat-raised-button type="button" routerLink=".."><span class="material-icons">
+                arrow_back
+                </span></a>
+        </mat-card-actions>
+
+    </mat-card>
+</form>

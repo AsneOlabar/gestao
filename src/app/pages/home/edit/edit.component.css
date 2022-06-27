@@ -1,0 +1,52 @@
+mat-card-actions {
+    justify-content: end;
+    align-items: center;
+    text-align: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.shipping-card {
+    min-width: 120px;
+    margin: 20px auto;
+}
+
+.mat-radio-button {
+    display: block;
+    margin: 5px 0;
+}
+
+img {
+    margin: 0 auto;
+    width: 8em;
+    height: 10em;
+}
+
+.row {
+    vertical-align: middle;
+    display: inline-block;
+    flex-direction: row;
+}
+
+.grande {
+    width: 300px;
+}
+
+.peq {
+    width: 150px;
+}
+
+.min {
+    width: 80px;
+}
+
+.col {
+    flex: 3;
+    padding: 1em;
+}
+
+.col:last-child {
+    margin-right: 0;
+}

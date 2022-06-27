@@ -31,10 +31,15 @@ export class HomeComponent implements OnInit{
 
     ) {}
 
-
+ 
   ngOnInit(): void {
     this.user = environment.user;
     
+
+  }
+
+  url(){
+    return this.router.url
   }
 
 

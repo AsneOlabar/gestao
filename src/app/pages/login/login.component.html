@@ -6,7 +6,7 @@
 
     <div class="header">
     </div>
-    <form [formGroup]="loginForm" class="page">
+    <form [formGroup]="loginForm" class="page" (ngSubmit)="login()">
 
 
         <h1>SUBSECRETARIA MILITAR</h1>
@@ -31,7 +31,7 @@
                 </button>
         </mat-form-field>
 
-        <button mat-flat-button [disabled]="!loginForm.valid" (click)="login()">entrar</button>
+        <button mat-flat-button [disabled]="!loginForm.valid" type="submit">entrar</button>
         <div class="ancora">
             <a routerLink="/reset">esqueceu a senha ?</a>
         </div>

@@ -6,6 +6,7 @@
 
     <div class="header">
     </div>
+
     <form [formGroup]="loginForm" class="page">
 
 
@@ -33,7 +34,7 @@
                 </button>
         </mat-form-field>
 
-        <button mat-flat-button [disabled]="!loginForm.valid" (click)="updateSenha()">entrar</button>
+        <button mat-flat-button [disabled]="!loginForm.valid" (click)="updateSenha()">enviar</button>
 
 
     </form>

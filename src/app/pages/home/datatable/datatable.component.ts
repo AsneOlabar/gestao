@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
-
+import { Router } from '@angular/router';
 
 /**
  * @title Table with pagination
@@ -30,7 +30,9 @@ export class DataTable implements AfterViewInit {
   
   
   
-  constructor(  private snackBar: MatSnackBar, private http: HttpClient
+  constructor(  private snackBar: MatSnackBar, 
+                private http: HttpClient,
+                private router: Router
     ){
       this.http.get<any>(`${environment.apiUrl}Funcionarios`, {headers: {Authorization: `Bearer ${environment.authorization}`}})
       .subscribe(
@@ -52,51 +54,16 @@ export class DataTable implements AfterViewInit {
      
   }
 editar(i){
-  alert(i);
-}
-/* busca(target?: any){
-  
-  if(target instanceof EventTarget) {
-    var elemento = target as HTMLInputElement;
-    target = elemento.value; 
-  
-  }
-  else{
-    target = null
-  }
-  
-    console.log(target);
-
-  if(target == null){
-
-    this.dataSource = new MatTableDataSource<Funcionarios>(this.dataSourceBackup);
-    this.retorno.nativeElement.innerText = "";
-    this.dataSource.paginator = this.paginatorBck;
-
-    return false;
-  }
-  else {
-
-    let filtro = target.split(' ');
-          
-    filtro.forEach(element => {
-      
-      this.dataSource.filter = element.trim().toLowerCase();
-      this.dataSource = new MatTableDataSource<Funcionarios>(this.dataSource.filteredData);
-      this.dataSource.paginator = this.paginator;
-      this.retorno.nativeElement.innerText = this.dataSource.length 
-
-    });  
-  }
-
-  if (this.dataSource.filteredData.length  == 0){
-    this.retorno.nativeElement.innerText = "Sem correspondência"
-  }
-  else{
-    this.retorno.nativeElement.innerText = this.dataSource.filteredData.length  
-  } 
-} */
-  
+  environment.funcionario = i;
+  this.router.navigate(['/edit']);
+    
 }
 
+applyFilter(filterValue) {  
+  
+  
+  this.dataSource.filter = filterValue.target.value.trim().toLowerCase(); 
+  
+}
+}
 

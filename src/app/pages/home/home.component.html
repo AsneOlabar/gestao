@@ -2,16 +2,17 @@
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar></mat-toolbar>
         <mat-nav-list>
-            <!-- <a mat-list-item routerLink="/" *ngIf="this.route != '/'">HOME</a> -->
+            <a mat-list-item routerLink="/ativos" *ngIf="url() != '/ativos'">Ativos</a>
+            <a mat-list-item routerLink="/cadastro" *ngIf="url() != '/cadastro'">Cadastro</a>
 
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon"></mat-icon>
-      </button>
-            <span>Gestão de credenciais</span>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> 
+            <mat-icon aria-label="Side nav toggle icon"></mat-icon>
+            </button>
+            <span>Gestão de crachás</span>
             <div class="right" id="iconButton">
 
                 <span class="material-icons" (click)="logout()" alt="sair">
@@ -23,8 +24,7 @@
         </mat-toolbar>
 
 
-        <datatable [FUNCIONARIOS_DATA]="dataSource"></datatable>
-
+        <router-outlet></router-outlet>
 
 
     </mat-sidenav-content>

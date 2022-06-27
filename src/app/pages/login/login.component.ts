@@ -33,7 +33,12 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-   
+   if(environment.authorization != null){
+
+    this.router.navigate(['/home']);
+
+
+   }
   }
 
   
@@ -41,13 +46,19 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.loginForm.value.usuario, this.loginForm.value.password)
     .subscribe(
       data => {
-          
-          let split = data.Authorization
-          
-          let payload = JSON.parse(atob(split.split('.')[1]));
+        
+      if(data.code == 1){
+
+        let split = data.Authorization
+        
+        let payload = JSON.parse(atob(split.split('.')[1]));
         environment.user = payload
         environment.authorization =  data.Authorization;
         this.router.navigate(['/']);
+      }else{
+        this.snackBar.open(data, 'X', { duration: 3000
+
+      })}
 
       }, error =>{
         
