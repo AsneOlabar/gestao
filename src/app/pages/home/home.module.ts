@@ -4,9 +4,9 @@ import { DataTable } from './datatable/datatable.component';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { AltSenhaComponent } from './altSenha/altSenha.component';
 import { FuncionariosService } from '../../_services/funcionarios.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -23,16 +23,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { EditComponent } from './edit/edit.component';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+
 
 
 @NgModule({
-  declarations: [HomeComponent, DataTable, CadastroComponent, EditComponent],
+  declarations: [HomeComponent, DataTable, CadastroComponent, EditComponent, AltSenhaComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    
     AngularMaterialModule,
     HttpClientModule,
     LayoutModule,
@@ -44,11 +45,13 @@ import { EditComponent } from './edit/edit.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [
     AuthenticationService, AuthGuard,
-    FuncionariosService
+    FuncionariosService, MatDialog
+		
   ]
   
 })

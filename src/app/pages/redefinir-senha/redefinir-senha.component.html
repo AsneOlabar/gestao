@@ -33,9 +33,13 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
         </mat-form-field>
+        <div class="btns">
+            <button mat-flat-button [disabled]="!loginForm.valid" (click)="updateSenha()">enviar</button>
+        </div>
 
-        <button mat-flat-button [disabled]="!loginForm.valid" (click)="updateSenha()">enviar</button>
-
+        <div class="btns">
+            <button mat-flat-button routerLink="/login">cancelar</button>
+        </div>
 
     </form>
 </div>

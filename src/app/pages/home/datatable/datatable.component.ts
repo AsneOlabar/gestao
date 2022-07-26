@@ -27,8 +27,8 @@ export class DataTable implements AfterViewInit {
   displayedColumns: string[] = ['nome_funcionario', 'cpf_funcionario', 'orgao', 'setor', 'funcao', 'acao'];
   paginatorBck: any;
   dataSourceBackup: Funcionarios[];
-  
-  
+  ATIVOS;
+  INATIVOS;
   
   constructor(  private snackBar: MatSnackBar, 
                 private http: HttpClient,
@@ -36,8 +36,12 @@ export class DataTable implements AfterViewInit {
     ){
       this.http.get<any>(`${environment.apiUrl}Funcionarios`, {headers: {Authorization: `Bearer ${environment.authorization}`}})
       .subscribe(
-        (data)=> {
-          this.dataSource = new MatTableDataSource<Funcionarios>(data.info);
+        
+        (data)=> { 
+          environment.funcionarios = data.info;
+          this.ATIVOS = data.info.filter((info)=>info.situacao == 'Ativo');
+          this.INATIVOS = data.info.filter((info)=>info.situacao == 'Inativos');
+          this.dataSource = new MatTableDataSource<Funcionarios>(this.ATIVOS);
           this.dataSource.paginator = this.paginator;
         },
         (erro)=>{

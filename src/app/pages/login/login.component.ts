@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   hide = true;
   submitted = false;
   
-  
   loginForm = this.formBuilder.group({
     usuario: ['', [Validators.required]],
     password: ['', [Validators.required]], 
@@ -35,7 +34,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
    if(environment.authorization != null){
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
 
 
    }
@@ -43,6 +42,7 @@ export class LoginComponent implements OnInit {
 
   
   login() { //Envia o formulário de login para a API
+   
     this.auth.login(this.loginForm.value.usuario, this.loginForm.value.password)
     .subscribe(
       data => {
@@ -65,11 +65,12 @@ export class LoginComponent implements OnInit {
         this.snackBar.open(error.error.msg, 'X', {
           duration: 3000
         })
+        
       }
     )
     
 
-   
+    
   }
  
 

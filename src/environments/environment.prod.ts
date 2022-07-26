@@ -5,6 +5,7 @@ export const environment = {
   apiUrl: "http://api.subsecmilitar.rj.gov.br/",
   user: null,
   funcionario: null,
+  funcionarios: null,
   logado: false,
-  authorization: null
+  authorization: ""
 };

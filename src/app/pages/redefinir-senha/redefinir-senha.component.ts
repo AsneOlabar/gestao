@@ -24,7 +24,7 @@ payload: any;
     private route: ActivatedRoute,
 
   ) { }
-hide: boolean = false;
+hide: boolean = true;
   loginForm = this.formBuilder.group({
     password: ['', [Validators.required]],
     passwordConfirm: ['', [Validators.required]], 

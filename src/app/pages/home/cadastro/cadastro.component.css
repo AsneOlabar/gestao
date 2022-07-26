@@ -26,6 +26,12 @@
     margin-right: 0;
 } */
 
+mat-card-actions {
+    justify-content: end;
+    align-items: center;
+    text-align: right;
+}
+
 .full-width {
     width: min-content;
 }

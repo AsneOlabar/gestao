@@ -84,15 +84,28 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <mat-form-field class="peq">
+                    <mat-form-field>
+                        <mat-label>Tipo Sanguíneo</mat-label>
+                        <mat-select formControlName="sangue" required [compareWith]="compareWith">
+
+                            <mat-option *ngFor="let tipo of tipoSanguineo" [value]="tipo">
+                                {{tipo}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="cadastro.controls['sangue'].hasError('required')">*</mat-error>
+                    </mat-form-field>
+                    <!-- <mat-form-field class="peq">
                         <input matInput placeholder="Tipo Sanguíneo" formControlName="sangue">
                         <mat-error *ngIf="cadastro.controls['sangue'].hasError('required')">
                             <strong>*</strong>
                         </mat-error>
-                    </mat-form-field>
+                    </mat-form-field> -->
                 </div>
 
             </div>
+
+
+
             <!-- <div class="row">
                 <div class="col">
                     <mat-form-field class="grande">
@@ -137,14 +150,29 @@
                 </div>
 
             </div>
+            <div class="row">
+                <div class="col">
+
+
+                    <mat-checkbox formControlName="reimpressao" class="danger">
+                        <strong *ngIf="!cadastro.value.reimpressao">REIMPRIMIR ?</strong>
+                        <p *ngIf="cadastro.value.reimpressao ">Reimpressão será solicitada.</p>
+                    </mat-checkbox>
+                    <br>
+                    <strong class="danger" *ngIf="!cadastro.value.reimpressao"> * marque a caixa para solicitar a reimpressão do crachá</strong>
+
+
+                </div>
+
+            </div>
 
 
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit" [disabled]="!cadastro.valid"><span class="material-icons">
+            <button mat-raised-button color="primary" type="submit " [disabled]="!cadastro.valid "><span class="material-icons ">
                 save
                 </span></button>
-            <a mat-raised-button type="button" routerLink=".."><span class="material-icons">
+            <a mat-raised-button type="button " routerLink=".."><span class="material-icons ">
                 arrow_back
                 </span></a>
         </mat-card-actions>

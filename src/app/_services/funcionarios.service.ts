@@ -18,20 +18,7 @@ export class FuncionariosService { //Realiza o serviço de autenticação junto 
   ) {}
 
  
- /*  getFuncionarios(): any { //Faz a requisição de autenticação e inicia as variáveis necessárias
-    
-    this.http.get<any>(`${environment.apiUrl}Funcionarios`, {headers: {Authorization: `Bearer ${environment.authorization}`}})
-    .subscribe((resp)=> {
-      let dados = new BehaviorSubject<Funcionarios>()
 
-    },
-    (err)=>{
-      console.log(err);
-    }
-    )
-    
-    return 
-     ; */
   
 
   

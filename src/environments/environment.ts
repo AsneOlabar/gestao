@@ -7,8 +7,9 @@ export const environment = {
   apiUrl: "http://api.local/",
   user: null,
   funcionario: null,
+  funcionarios: null,
   logado: false,
-  authorization: null
+  authorization: ""
 };
 
 /*

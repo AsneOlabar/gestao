@@ -6,165 +6,168 @@
         <mat-card-content>
             <div class="row">
                 <div class="col">
-                    <input type="file" *ngIf="!isImageSaved" placeholder="Foto 3x4" (change)="CreateBase64String($event)" accept="image/jpeg" formControlName="foto_input">
-                    <input type="hidden" formControlName="foto_funcionario">
-
-                </div>
-                <div class="col">
-                    <img [src]="cardImageBase64" alt="" *ngIf="isImageSaved">
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col">
 
                     <mat-form-field class="full-width">
-                        <input matInput placeholder="Nome completo" formControlName="nome_funcionario" [disabled]>
-                        <mat-error *ngIf="cadastro.controls['nome_funcionario'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="CPF" formControlName="cpf_funcionario">
+                        <input matInput placeholder="insira o CPF e pressione enter" formControlName="cpf_funcionario" (keyup.enter)="applyFilter($event)">
+                        <span></span>
                         <mat-error *ngIf="cadastro.controls['cpf_funcionario'].hasError('required')">
                             <strong>*</strong>
                         </mat-error>
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div *ngIf="show">
 
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Id Funcional" formControlName="funcional">
-                        <mat-error *ngIf="cadastro.controls['funcional'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-            </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="file" *ngIf="!isImageSaved" placeholder="Foto 3x4" (change)="CreateBase64String($event)" accept="image/jpeg" formControlName="foto_input">
+                        <input type="hidden" formControlName="foto_funcionario">
+                        <input type="hidden" formControlName="foto64">
 
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="RG" formControlName="identidade">
-                        <mat-error *ngIf="cadastro.controls['identidade'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Emissor" formControlName="emissor">
-                        <mat-error *ngIf="cadastro.controls['emissor'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
+                    </div>
+                    <div class="col">
+                        <img [src]="cardImageBase64" alt="" *ngIf="isImageSaved">
+                    </div>
 
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Tipo Sanguíneo" formControlName="sague">
-                        <mat-error *ngIf="cadastro.controls['sague'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Nome completo" formControlName="nome_funcionario" [disabled]>
+                            <mat-error *ngIf="cadastro.controls['nome_funcionario'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Id Funcional" formControlName="funcional">
+                            <mat-error *ngIf="cadastro.controls['funcional'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
                 </div>
 
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Òrgão" formControlName="orgao">
-                        <mat-error *ngIf="cadastro.controls['orgao'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="RG" formControlName="identidade">
+                            <mat-error *ngIf="cadastro.controls['identidade'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Emissor" formControlName="emissor">
+                            <mat-error *ngIf="cadastro.controls['emissor'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <mat-select formControlName="sangue" required>
+
+                                <mat-option *ngFor="let tipo of tipoSanguineo" [value]="tipo">
+                                    {{tipo}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="cadastro.controls['sangue'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
                 </div>
 
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Setor" formControlName="setor">
-                        <mat-error *ngIf="cadastro.controls['setor'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Setor" formControlName="setor">
+                            <mat-error *ngIf="cadastro.controls['setor'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Função" formControlName="funcao">
+                            <mat-error *ngIf="cadastro.controls['funcao'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Ramal" formControlName="ramal">
+                            <mat-error *ngIf="cadastro.controls['ramal'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
                 </div>
 
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Função" formControlName="funcao">
-                        <mat-error *ngIf="cadastro.controls['funcao'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="número do DO" formControlName="num_do">
+                            <mat-error *ngIf="cadastro.controls['num_do'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="pág do DO" formControlName="pag_do">
+                            <mat-error *ngIf="cadastro.controls['pag_do'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
                 </div>
 
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="Ramal" formControlName="ramal">
-                        <mat-error *ngIf="cadastro.controls['ramal'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input type="date" matInput placeholder="data DO" formControlName="data_do">
+                            <mat-error *ngIf="cadastro.controls['data_do'].hasError('required')">
+                                <strong>*</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
                 </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="número do DO" formControlName="num_do">
-                        <mat-error *ngIf="cadastro.controls['num_do'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput placeholder="pág do DO" formControlName="pag_do">
-                        <mat-error *ngIf="cadastro.controls['pag_do'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input type="date" matInput placeholder="data DO" formControlName="data_do">
-                        <mat-error *ngIf="cadastro.controls['data_do'].hasError('required')">
-                            <strong>*</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit" [disabled]="!cadastro.valid">Submit</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!cadastro.valid">enviar</button>
+            <button mat-raised-button routerLink="..">cancela</button>
+        </mat-card-actions>
+        <mat-card-actions>
         </mat-card-actions>
     </mat-card>
 </form>

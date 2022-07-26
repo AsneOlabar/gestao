@@ -37,7 +37,8 @@
 
 .mat-flat-button {
     height: 30px;
-    width: 120px;
+    width: 100%;
+    display: inline-block;
 }
 
 
@@ -88,4 +89,9 @@ a :before {
 
 .formFild {
     display: block;
+}
+
+.btns {
+    margin-top: 1em;
+    padding-top: 1em;
 }

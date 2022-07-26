@@ -4,6 +4,14 @@ mat-card-actions {
     text-align: right;
 }
 
+.success {
+    color: greenyellow;
+}
+
+.danger {
+    color: red;
+}
+
 .full-width {
     width: 100%;
 }

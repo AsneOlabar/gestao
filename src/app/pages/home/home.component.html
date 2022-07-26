@@ -9,15 +9,33 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> 
-            <mat-icon aria-label="Side nav toggle icon"></mat-icon>
-            </button>
-            <span>Gestão de crachás</span>
-            <div class="right" id="iconButton">
 
-                <span class="material-icons" (click)="logout()" alt="sair">
-                        logout
-                        </span>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> 
+            
+            <mat-icon aria-label="Side nav toggle icon">reorder</mat-icon>
+            </button>
+
+            <span>Gestão de crachás</span>
+
+            <div class="right" id="iconButton">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openDialog()">
+                      <mat-icon >dialpad</mat-icon>
+                      <span>Alterar Senha</span>
+                    </button>
+                    <!-- <button mat-menu-item disabled>
+                      <mat-icon>voicemail</mat-icon>
+                      <span>Check voice mail</span>
+                    </button> -->
+                    <button mat-menu-item (click)="logout()" alt="sair">
+                      <mat-icon >logout</mat-icon>
+                      <span>Sair</span>
+                    </button>
+                </mat-menu>
+
 
             </div>
 
